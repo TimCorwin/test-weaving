@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (c) 2015-2017 GE Digital. All rights reserved.                    ~
+  ~                                                                             ~
+  ~ The copyright to the computer software herein is the property of GE Digital.~
+  ~ The software may be used and/or copied only with the written permission of  ~
+  ~ GE Digital or in accordance with the terms and conditions stipulated in the ~
+  ~ agreement/contract under which the software has been supplied.              ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="PersistenceUnit"
+    transaction-type="RESOURCE_LOCAL">
+    <description>Persistence Unit</description>
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <mapping-file>META-INF/custom-orm.xml</mapping-file>
+
+    <!--exclude-unlisted is not working; explicitly add entities for now-->
+    <class>test.weaving.dal.Author</class>
+    <class>test.weaving.dal.Book</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+    <properties>
+      <property name="eclipselink.weaving" value="static"/>
+      <property name="eclipselink.cache.shared.default" value="false"/>
+    </properties>
+  </persistence-unit>
+</persistence>

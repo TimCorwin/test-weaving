@@ -1,0 +1,50 @@
+group 'test'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.5.8.RELEASE') {
+        exclude(group: 'org.hibernate')
+    }
+    compile(group: 'org.eclipse.persistence', name: 'eclipselink', version: '2.7.1') {
+        exclude(module: 'javax.persistance')
+        exclude(module: 'validation-api')
+    }
+    compile(group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2')
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
+
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.5.8.RELEASE')
+}
+// jpa weaving
+
+task performJPAWeaving(type: JavaExec, dependsOn: "compileJava"){
+    inputs.dir compileJava.destinationDir
+    outputs.dir compileJava.destinationDir
+    main "org.eclipse.persistence.tools.weaving.jpa.StaticWeave"
+    args  "-persistenceinfo",
+            "src/main/resources",
+            compileJava.destinationDir.getAbsolutePath(),
+            compileJava.destinationDir.getAbsolutePath()
+    classpath = configurations.compile
+}
+
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+// enable autocreation of config metadata
+compileJava.dependsOn(processResources)
+//This will force the tests to always execute by clearing out the test cache
+test.dependsOn 'cleanTest'
+test.dependsOn performJPAWeaving
+classes.finalizedBy performJPAWeaving
+performJPAWeaving.dependsOn classes
