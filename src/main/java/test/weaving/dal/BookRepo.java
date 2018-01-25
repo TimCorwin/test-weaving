@@ -11,4 +11,7 @@ public interface BookRepo extends CrudRepository<Book, Integer> {
 
   @Query("select b from Book b JOIN b.author authors ")
   Set<Book> getAllEagerly();
+
+  Book findFirstByTitle(String title);
+
 }

@@ -45,8 +45,8 @@
     </role>
     <schema id="9" parent="2" name="public">
       <ObjectId>24576</ObjectId>
-      <IntrospectionTimestamp>2018-01-23.08:56:43.339</IntrospectionTimestamp>
-      <IntrospectionStateNumber>582</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-01-24.07:47:50.779</IntrospectionTimestamp>
+      <IntrospectionStateNumber>898</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -66,98 +66,202 @@
       <ObjectId>12703</ObjectId>
     </schema>
     <sequence id="15" parent="9" name="authors_id_seq">
-      <ObjectId>24632</ObjectId>
-      <StateNumber>581</StateNumber>
+      <ObjectId>25972</ObjectId>
+      <StateNumber>895</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
     <sequence id="16" parent="9" name="books_id_seq">
-      <ObjectId>24642</ObjectId>
-      <StateNumber>582</StateNumber>
+      <ObjectId>25982</ObjectId>
+      <StateNumber>896</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <table id="17" parent="9" name="authors">
-      <ObjectId>24634</ObjectId>
-      <StateNumber>582</StateNumber>
+    <sequence id="17" parent="9" name="genres_id_seq">
+      <ObjectId>25997</ObjectId>
+      <StateNumber>897</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <sequence id="18" parent="9" name="mappings_id_seq">
+      <ObjectId>26007</ObjectId>
+      <StateNumber>898</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <table id="19" parent="9" name="authors">
+      <ObjectId>25974</ObjectId>
+      <StateNumber>896</StateNumber>
     </table>
-    <table id="18" parent="9" name="books">
-      <ObjectId>24644</ObjectId>
-      <StateNumber>582</StateNumber>
+    <table id="20" parent="9" name="books">
+      <ObjectId>25984</ObjectId>
+      <StateNumber>898</StateNumber>
     </table>
-    <column id="19" parent="17" name="id">
+    <table id="21" parent="9" name="genres">
+      <ObjectId>25999</ObjectId>
+      <StateNumber>898</StateNumber>
+    </table>
+    <table id="22" parent="9" name="mappings">
+      <ObjectId>26009</ObjectId>
+      <StateNumber>898</StateNumber>
+    </table>
+    <column id="23" parent="19" name="id">
       <Position>1</Position>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>581</StateNumber>
+      <StateNumber>895</StateNumber>
       <TypeId>20</TypeId>
       <SequenceName>authors_id_seq</SequenceName>
     </column>
-    <column id="20" parent="17" name="firstname">
+    <column id="24" parent="19" name="firstname">
       <Position>2</Position>
       <DataType>varchar|0</DataType>
-      <StateNumber>581</StateNumber>
+      <StateNumber>895</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="21" parent="17" name="lastname">
+    <column id="25" parent="19" name="lastname">
       <Position>3</Position>
       <DataType>varchar|0</DataType>
-      <StateNumber>581</StateNumber>
+      <StateNumber>895</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="22" parent="17" name="authors_pkey">
-      <ObjectId>24640</ObjectId>
+    <index id="26" parent="19" name="authors_pkey">
+      <ObjectId>25980</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="23" parent="17" name="authors_pkey">
-      <ObjectId>24641</ObjectId>
+    <key id="27" parent="19" name="authors_pkey">
+      <ObjectId>25981</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>authors_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="24" parent="18" name="id">
+    <column id="28" parent="20" name="id">
       <Position>1</Position>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>582</StateNumber>
+      <StateNumber>896</StateNumber>
       <TypeId>20</TypeId>
       <SequenceName>books_id_seq</SequenceName>
     </column>
-    <column id="25" parent="18" name="title">
+    <column id="29" parent="20" name="title">
       <Position>2</Position>
       <DataType>varchar|0</DataType>
-      <StateNumber>582</StateNumber>
+      <StateNumber>896</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="26" parent="18" name="author">
+    <column id="30" parent="20" name="author">
       <Position>3</Position>
       <DataType>bigint|0</DataType>
-      <StateNumber>582</StateNumber>
+      <StateNumber>896</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="27" parent="18" name="books_pkey">
-      <ObjectId>24650</ObjectId>
+    <index id="31" parent="20" name="books_pkey">
+      <ObjectId>25990</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="28" parent="18" name="books_pkey">
-      <ObjectId>24651</ObjectId>
+    <key id="32" parent="20" name="books_pkey">
+      <ObjectId>25991</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>books_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="29" parent="18" name="books_author_fkey">
-      <ObjectId>24652</ObjectId>
+    <foreign-key id="33" parent="20" name="books_author_fkey">
+      <ObjectId>25992</ObjectId>
       <ColNames>author</ColNames>
-      <RefTableId>24634</RefTableId>
+      <RefTableId>25974</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>authors</RefTableName>
       <RefKeyName>authors_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="34" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>897</StateNumber>
+      <TypeId>20</TypeId>
+      <SequenceName>genres_id_seq</SequenceName>
+    </column>
+    <column id="35" parent="21" name="name">
+      <Position>2</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>897</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="36" parent="21" name="description">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>897</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="37" parent="21" name="genres_pkey">
+      <ObjectId>26005</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="21" name="genres_pkey">
+      <ObjectId>26006</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>genres_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>898</StateNumber>
+      <TypeId>20</TypeId>
+      <SequenceName>mappings_id_seq</SequenceName>
+    </column>
+    <column id="40" parent="22" name="genre">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>898</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="41" parent="22" name="book">
+      <Position>3</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>898</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="42" parent="22" name="mappings_pkey">
+      <ObjectId>26012</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="43" parent="22" name="mappings_pkey">
+      <ObjectId>26013</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>mappings_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="22" name="mappings_genre_fkey">
+      <ObjectId>26014</ObjectId>
+      <ColNames>genre</ColNames>
+      <RefTableId>25999</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>genres</RefTableName>
+      <RefKeyName>genres_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="45" parent="22" name="mappings_book_fkey">
+      <ObjectId>26019</ObjectId>
+      <ColNames>book</ColNames>
+      <RefTableId>25984</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>books</RefTableName>
+      <RefKeyName>books_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
   </database-model>
